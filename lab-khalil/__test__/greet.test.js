@@ -1,12 +1,25 @@
 'use strict';
 
-const greet = require('../lib/greet');
+const greet = require('../lib/greet.js');
 
-describe('greet.test.js', () => {
-  test('Should return null when supplied non-string values', () => {
-    expect(greet.hello(5)).toEqual(null);
-  });
-  test('Should return hello <string> when supplied a string', () => {
-    expect(greet.hello('world')).toEqual('hello world');
-  });
-});
+const assert = require('assert');
+
+let message = '';
+
+
+assert.strictEqual(greet.greet(), null, 'One name is required');
+
+
+assert.strictEqual(greet.greet('khalil', 'ahmed'), null, 'Only One parameter is permitted');
+
+
+assert.strictEqual(greet.greet(1), null, 'NumbersShould Not Be Permitted');
+
+message = greet.greet([]);
+assert.strictEqual(message, null, 'Arrays Should Not Be Permitted');
+
+message = greet.greet({});
+assert.strictEqual(message, null, 'Objects Should Not Be Permitted');
+
+message = greet.greet('John');
+assert.strictEqual(message, 'hello John', `Output string does not match required (actual: "${message}", expected: "hello John")`);

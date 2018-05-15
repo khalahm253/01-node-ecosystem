@@ -1,27 +1,48 @@
 'use strict';
 
-const arithmetic = require('../lib/arithmetic');
+const arithmetic = require('../lib/arithmetic.js');
 
-describe('arithmetic.add', () => {
-  test('Should return sum of two numbers', () => {
-    expect(arithmetic.add(2, 4)).toEqual(6);
-  });
-  test('Should return null if first argument is not a number', () => {
-    expect(arithmetic.add('blue', 4)).toEqual(null);
-  });
-  test('Should return null if second argument is not a number', () => {
-    expect(arithmetic.add(2, 'dog')).toEqual(null);
-  });
-});
+const assert = require('assert');
 
-describe('arithmetic.sub', () => {
-  test('Should return the second number subtracted from the first', () => {
-    expect(arithmetic.sub(2, 4)).toEqual(-2);
-  });
-  test('Should return null if first argument is not a number', () => {
-    expect(arithmetic.sub('blue', 4)).toEqual(null);
-  });
-  test('Should return null if second argument is not a number', () => {
-    expect(arithmetic.sub(2, 'dog')).toEqual(null);
-  });
-});
+let message = '';
+
+
+assert.strictEqual(arithmetic.add(), null, 'Two Parameters Are Needed');
+
+
+assert.strictEqual(arithmetic.add(1), null, 'Two Parameters Are Needed');
+
+
+assert.strictEqual(arithmetic.add('khalil', 'ahmed'), null, 'Only Numeric Parameters Are Allowed');
+
+assert.strictEqual(arithmetic.add(2, 'ahmed'), null, 'Only Numeric Parameters Are Permitted');
+
+message = arithmetic.add([], []);
+assert.strictEqual(message, null, 'Arrays Should Not Be Permitted');
+
+message = arithmetic.add({}, {});
+assert.strictEqual(message, null, 'Objects Should Not Be Permitted');
+
+message = arithmetic.add(2, 2);
+assert.strictEqual(message, 4, `Output string does not match required (actual: "${message}", expected: 4)`);
+
+
+assert.strictEqual(arithmetic.sub(), null, 'Two Parameters Are Required');
+
+
+assert.strictEqual(arithmetic.sub(1), null, 'Two Parameters Are Required');
+
+
+assert.strictEqual(arithmetic.sub(),'khalil', 'ahmed', null, 'Only Numbers Are Permitted');
+
+
+assert.strictEqual(arithmetic.sub(2, 'ahmed'), null, 'Only Numbers Are Permitted');
+
+message = arithmetic.sub([], []);
+assert.strictEqual(message, null, 'Arrays Should Not Be Permitted');
+
+message = arithmetic.sub({}, {});
+assert.strictEqual(message, null, 'Objects Should Not Be Permitted');
+
+message = arithmetic.sub(7, 5);
+assert.strictEqual(message, 2, `Output string does not match required (actual: "${message}", expected: 2)`);
