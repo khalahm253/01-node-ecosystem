@@ -1,0 +1,14 @@
+{
+  "name": "lab-khalil",
+  "version": "1.0.0",
+  "description": "node",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
+}
