@@ -4,7 +4,7 @@ const arithmetic = require('../lib/arithmetic.js');
 
 const assert = require('assert');
 
-let message = '';
+let message = '' ;
 
 
 assert.strictEqual(arithmetic.add(), null, 'Two Parameters Are Needed');
