@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "npm test"
+    "test": "node ./__test__/greet.test.js ./__test__/arithmetic.test.js",
+    "lint": "eslint **/*.js"
   },
   "author": "",
   "license": "ISC"
