@@ -1,10 +1,23 @@
 'use strict';
 
-const greet = module.exports = {};
+// Prep our interface mechanism (module.exports)
+module.exports = exports = {};
 
-greet.hello = (name) => {
-  if (typeof name !== 'string') {
-    return null;
-  }
-  return `hello ${name}`;
+/**
+ * Interface Method: sayHello(name)
+ * @param {string} name
+ * @returns {string}
+ */
+exports.sayHello = (...args) => {
+  if(args.length !== 1) { return null; }
+  if( typeof args[0] !== 'string' ) { return null; }
+  return `Hello, ${args[0]}`;
+};
+
+/**
+ * sayGoodbye()
+ * @returns {string}
+ */
+exports.sayGoodbye = () => {
+  return 'Goodbye';
 };

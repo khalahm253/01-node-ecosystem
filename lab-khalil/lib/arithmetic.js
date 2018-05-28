@@ -1,17 +1,23 @@
 'use strict';
 
-const arithmetic = module.exports = {};
+// Prep our interface mechanism (module.exports)
+module.exports = exports = {};
 
-arithmetic.add = (num1, num2) => {
-  if (typeof num1 !== 'number' || typeof num2 !== 'number') {
-    return null;
-  }
-  return num1 + num2;
+/**
+ * Interface Method: sayHello(name)
+ * @param {string} name
+ * @returns {string}
+ */
+exports.add = (...args) => {
+  if(args.every(el => typeof(el) !== 'number') || args.length !==2) { return null; }
+  return args[0]+args[1];
 };
 
-arithmetic.sub = (num1, num2) => {
-  if (typeof num1 !== 'number' || typeof num2 !== 'number') {
-    return null;
-  }
-  return num1 - num2;
+/**
+ * sayGoodbye()
+ * @returns {string}
+ */
+exports.sub = (...args) => {
+  if(args.every(el => typeof(el) !== 'number') || args.length !==2) { return null; }
+  return args[0]-args[1];
 };

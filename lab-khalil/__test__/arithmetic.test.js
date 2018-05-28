@@ -1,48 +1,29 @@
 'use strict';
 
-const arithmetic = require('../lib/arithmetic.js');
+// Require the module under test
+const basicMath = require('../lib/arithmetic.js');
 
+// Require the node.js "assert" library
 const assert = require('assert');
 
-let message = '' ;
+// For simplicity, create a local variable to re-use
+let answer = '';
 
+// Tests are documentation.  Is there any need to comment what these are doing?  NOT.
+answer = basicMath.add();
+assert.strictEqual(answer, null, 'Two parameters required');
 
-assert.strictEqual(arithmetic.add(), null, 'Two Parameters Are Needed');
+answer = basicMath.add(2);
+assert.strictEqual(answer, null, 'Two parameters required');
 
+answer = basicMath.add(1, 2, 3);
+assert.strictEqual(answer, null, 'Only two parameters are permitted');
 
-assert.strictEqual(arithmetic.add(1), null, 'Two Parameters Are Needed');
+answer = basicMath.add('one', 'two');
+assert.strictEqual(answer, null, 'Strings are not permitted');
 
+answer = basicMath.add([]);
+assert.strictEqual(answer, null, 'Arrays Should Not Be Permitted');
 
-assert.strictEqual(arithmetic.add('khalil', 'ahmed'), null, 'Only Numeric Parameters Are Allowed');
-
-assert.strictEqual(arithmetic.add(2, 'ahmed'), null, 'Only Numeric Parameters Are Permitted');
-
-message = arithmetic.add([], []);
-assert.strictEqual(message, null, 'Arrays Should Not Be Permitted');
-
-message = arithmetic.add({}, {});
-assert.strictEqual(message, null, 'Objects Should Not Be Permitted');
-
-message = arithmetic.add(2, 2);
-assert.strictEqual(message, 4, `Output string does not match required (actual: "${message}", expected: 4)`);
-
-
-assert.strictEqual(arithmetic.sub(), null, 'Two Parameters Are Required');
-
-
-assert.strictEqual(arithmetic.sub(1), null, 'Two Parameters Are Required');
-
-
-assert.strictEqual(arithmetic.sub(),'khalil', 'ahmed', null, 'Only Numbers Are Permitted');
-
-
-assert.strictEqual(arithmetic.sub(2, 'ahmed'), null, 'Only Numbers Are Permitted');
-
-message = arithmetic.sub([], []);
-assert.strictEqual(message, null, 'Arrays Should Not Be Permitted');
-
-message = arithmetic.sub({}, {});
-assert.strictEqual(message, null, 'Objects Should Not Be Permitted');
-
-message = arithmetic.sub(7, 5);
-assert.strictEqual(message, 2, `Output string does not match required (actual: "${message}", expected: 2)`);
+answer = basicMath.add({});
+assert.strictEqual(answer, null, 'Objects Should Not Be Permitted');
