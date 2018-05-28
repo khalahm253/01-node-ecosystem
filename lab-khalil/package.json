@@ -11,5 +11,8 @@
     "lint": "eslint **/*.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lint": "^1.1.2"
+  }
 }
